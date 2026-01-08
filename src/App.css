@@ -1,0 +1,86 @@
+/* Layout */
+.page {
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 32px;
+  background: #f5f5f5;
+  border-radius: 12px;
+}
+
+.center-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eee;
+}
+
+/* Typography */
+.title {
+  text-align: center;
+  margin-bottom: 24px;
+  color: #333;
+}
+
+.text-muted {
+  text-align: center;
+  color: #777;
+}
+
+/* Lists & layout */
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+}
+
+/* Buttons */
+.btn {
+  padding: 12px;
+  background: #e0e0e0;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: #d5d5d5;
+}
+
+.btn-secondary {
+  background: #c8c8c8;
+}
+
+/* Forms */
+.form {
+  background: #f5f5f5;
+  padding: 32px;
+  border-radius: 12px;
+  width: 320px;
+}
+
+.form input {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+/* Cards */
+.card-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+}
