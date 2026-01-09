@@ -19,10 +19,10 @@ export const AddTopic = () => {
         navigate("/")
     }
   return (
-    <div style={{display:"flex",alignItems:"center",justifyContent:"center",height:"100vh"}}>
-        <input type="text" value={newTopic} onChange={(e)=>setNewTopic(e.target.value)}/>
-        <button onClick={handleAdd}>Add topic</button>
-        <button onClick={handleLogout}>Kilépés admin módból</button>
+     <div className="center-page">
+      <input type="text" value={newTopic} onChange={(e) => setNewTopic(e.target.value)}/>
+      <button onClick={handleAdd}>Új témakör hozzáadása</button>
+      <button onClick={handleLogout}>Kilépés admin módból</button>
     </div>
     
   )

@@ -46,32 +46,46 @@ export const Topic = () => {
   console.log("card id " + currentCard?.id);
 
   return (
-    <div>
-        <div className="topic-container fadeIn">
+    <div className="topic-container">
       <h1 className="topic-title">{topicName}</h1>
-      
+
       {cards.length === 0 ? (
         <p className="empty-list">A lista üres</p>
       ) : (
-        <div className="card-container fadeIn">
-            {<MyFlipCard question={currentCard?.question} answer={currentCard?.answer}/>}
+        <div className="card-container">
+          <MyFlipCard
+            question={currentCard?.question}
+            answer={currentCard?.answer}
+          />
+
           <div className="card-buttons">
-            <button onClick={prev}><FaArrowCircleLeft  size={35}/></button>
-            <button onClick={next}><FaArrowCircleRight size={35}/></button>
+            <button onClick={prev}><FaArrowCircleLeft size={35} /></button>
+            <button onClick={next}><FaArrowCircleRight size={35} /></button>
           </div>
-          <p className="card-index">{currentIndex + 1} / {cards.length}</p>
+
+          <p className="card-index">
+            {currentIndex + 1} / {cards.length}
+          </p>
         </div>
       )}
 
-      <div style={{display:"flex",gap:"5px"}}>
+      <div className="card-buttons">
         <button className="add-card-btn" onClick={handleAddCard}>Add Card</button>
-        {hasAccess&& <div><button className="add-card-btn" onClick={handleAddCard}>Edit card</button>
-        <button className="add-card-btn" onClick={handleDeleteCard}>Delete card</button>
-        <button className="add-card-btn" onClick={handleAddCard}>Delete topic</button></div>
-        }
+
+        {hasAccess && (
+          <>
+            <button className="add-card-btn">Edit card</button>
+            <button className="add-card-btn" onClick={handleDeleteCard}>Delete card</button>
+            <button className="add-card-btn">Delete topic</button>
+          </>
+        )}
       </div>
-        <AccessKeyModal open={open} onClose={()=>setOpen(false)} onSuccess={()=>navigate("/addcard")}/>
-        </div>
+
+      <AccessKeyModal
+        open={open}
+        onClose={() => setOpen(false)}
+        onSuccess={() => navigate("/addcard")}
+      />
     </div>
   );
 };

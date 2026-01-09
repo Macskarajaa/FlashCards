@@ -29,7 +29,7 @@ export const Home = () => {
       <AccessKeyModal
         open={modalOpen}
         onClose={() => setModalOpen(false)}
-        onSuccess={() => alert("Sikeres belépés admin módban!")}
+        onSuccess={() => alert("Sikeres belépés")}
       />
     </div>
   );
