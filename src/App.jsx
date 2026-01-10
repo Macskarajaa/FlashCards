@@ -27,6 +27,8 @@ function App() {
         <Route path='/addtopic' element={<AddTopic />}></Route>
         <Route path='/topic/:id' element={<Topic />}></Route>
         <Route path='/addcard/:id' element={<AddCard />}></Route>
+        <Route path='/edit' element={<Topics />}></Route>
+
       </Routes>
     </div>
   </MyAccessProvider>

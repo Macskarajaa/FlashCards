@@ -23,7 +23,7 @@ export const Topics = () => {
 
     return (
     <div className="topics-container " style={{display:"flex", justifyContent:"center", flexDirection:"column", alignItems:"center"}}>
-      <h1 className="topics-title">OSZTV verseny témakörök</h1>
+      <h1 className="topics-title" style={{marginBottom:"20px"}}>OSZTV verseny témakörök</h1>
 
       <div className="topics-list">
         {topics.map(obj => (
@@ -31,8 +31,8 @@ export const Topics = () => {
             key={obj.id}
             className="topic-button"
             onClick={() => navigate("/topic/" + obj.id)}
-          >
-            {obj.name}
+          ><span className='topicText' title={obj.name}>{obj.name}</span>
+            
           </button>
         ))}
       </div>

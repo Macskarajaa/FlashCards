@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router';
-import { deleteCard, readCards, readCardsOnce, readTopicById } from '../myBackend';
+import { deleteCard, deleteTopicWIthCards, readCards, readCardsOnce, readTopicById } from '../myBackend';
 import { FaArrowCircleLeft } from "react-icons/fa";
 import { FaArrowCircleRight } from "react-icons/fa";
 import { AccessKeyModal } from '../components/AccessKeyModal';
@@ -38,13 +38,22 @@ export const Topic = () => {
     if(hasAccess) deleteCard(id,currentCard?.id)
   }
 
+  const handleDeleteTopic = () => {
+    if(hasAccess) {
+      console.log(id);
+      
+      deleteTopicWIthCards(id)
+      navigate("/topics")
+    }
+  }
+
   const next = () => setCurrentIndex(i => (i + 1) % cards.length);
   const prev = () => setCurrentIndex(i => (i - 1 + cards.length) % cards.length);  
 
 
   const currentCard = cards[currentIndex];
   console.log("card id " + currentCard?.id);
-
+  
   return (
     <div className="topic-container">
       <h1 className="topic-title">{topicName}</h1>
@@ -76,7 +85,7 @@ export const Topic = () => {
           <>
             <button className="add-card-btn">Edit card</button>
             <button className="add-card-btn" onClick={handleDeleteCard}>Delete card</button>
-            <button className="add-card-btn">Delete topic</button>
+            <button className="add-card-btn" onClick={handleDeleteTopic}>Delete topic</button>
           </>
         )}
       </div>

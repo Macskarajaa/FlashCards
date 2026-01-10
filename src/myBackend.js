@@ -97,7 +97,7 @@ export const deleteTopicWIthCards = async (topicId) => {
     try {
         const topicDoc = doc(db, "topics", topicId);
         const cardsCol = collection(topicDoc, "cards");
-        const cardsSnap = await getDoc(cardsCol);
+        const cardsSnap = await getDocs(cardsCol);
 
         const batch = writeBatch(db);
 
@@ -144,12 +144,8 @@ export const updateCard = async (topicId, cardId, updateData) => {
     }
 };
 
-export const deleteTopic = async () => {
-    const id = "";
+export const deleteTopic = async (topicId) => {
+        const docref = doc(db, "topics", topicId);
+        await deleteDoc(docref);
 
-    try {
-        await deleteDoc(db, "topics", id);
-    } catch (err) {
-        console.log(err);
-    }
 };

@@ -9,13 +9,13 @@ export const AccessContext = createContext()
 //const API_URL = "http://localhost:3001"
 
 export const MyAccessProvider = ({children}) => {
-    const [hasAccess,setHasAccess] = useState(false)
+    const [hasAccess,setHasAccess] = useState(true)
     const [loading,setLoading] = useState(false)
 
     console.log(hasAccess);
     
 
-    useEffect(()=>{
+    {/*useEffect(()=>{
         const checkAuth = async () => {
             try {
                 await axios.get(`${import.meta.env.VITE_API_URL}/protected`,{withCredentials:true})
@@ -30,7 +30,7 @@ export const MyAccessProvider = ({children}) => {
 
 
         checkAuth()
-    },[])
+    },[])*/}
 
     const verifyKey = async (key) => {
         try {

@@ -10,21 +10,13 @@ export const Home = () => {
 
   return (
     <div className="home">
-      <h1>Home</h1>
+      <h1 style={{marginBottom:"20px"}}>FlashCards</h1>
 
       <button onClick={() => navigate("/topics")}>
         Topics
       </button>
 
-      {hasAccess ? (
-        <button onClick={() => navigate("/addcard")}>
-          Új kártya hozzáadása
-        </button>
-      ) : (
-        <button onClick={() => setModalOpen(true)}>
-          Admin mód
-        </button>
-      )}
+      
 
       <AccessKeyModal
         open={modalOpen}

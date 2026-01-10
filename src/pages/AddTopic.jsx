@@ -12,6 +12,7 @@ export const AddTopic = () => {
 
     const handleAdd = async ()=> {
         await addTopic(newTopic)
+        navigate("/topics")
     }
 
     const handleLogout = () => {
@@ -22,7 +23,7 @@ export const AddTopic = () => {
      <div className="center-page">
       <input type="text" value={newTopic} onChange={(e) => setNewTopic(e.target.value)}/>
       <button onClick={handleAdd}>Új témakör hozzáadása</button>
-      <button onClick={handleLogout}>Kilépés admin módból</button>
+      <button onClick={handleLogout} className='kilepes'>Kilépés admin módból</button>
     </div>
     
   )

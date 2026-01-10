@@ -25,9 +25,9 @@ export const Header = () => {
   return (
     <header className="myHeader">
       <FaHome onClick={() => navigate("/")} className="home-icon" size={40} />
-      {hasAccess?<button onClick={handleLogout}>Kilépés admin módból</button>
+      {hasAccess?<button onClick={handleLogout} className="kilepes">Kilépés admin módból</button>
       : 
-      <button onClick={handleLogin}>Belépés</button>
+      <button onClick={handleLogin} className="belepes">Belépés</button>
       }
       <AccessKeyModal open={open} onClose={()=>setOpen(false)} onSuccess={()=>navigate("/")}/>
     </header>
