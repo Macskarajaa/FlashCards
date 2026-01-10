@@ -15,23 +15,24 @@ export const MyAccessProvider = ({children}) => {
     console.log(hasAccess);
     
 
-    useEffect(()=>{
-        const checkAuth = async () => {
-            try {
-                await axios.get(`${import.meta.env.VITE_API_URL}/protected`,{withCredentials:true})
-                setHasAccess(true)
-            } catch (error) {
-                console.log(error);
-                setHasAccess(false)
-            }finally{
-                setLoading(false)
-            }
-        }
+useEffect(() => {
+  const checkAuth = async () => {
+    setLoading(true)
+    try {
+      await axios.get(
+        `${import.meta.env.VITE_API_URL}/protected`,
+        { withCredentials: true }
+      )
+      setHasAccess(true)
+    } catch {
+      setHasAccess(false)
+    } finally {
+      setLoading(false)
+    }
+  }
 
-
-        checkAuth()
-    },[])
-
+  checkAuth()
+}, [])
     const verifyKey = async (key) => {
         try {
             await axios.post(`${import.meta.env.VITE_API_URL}/login`,{key},{withCredentials:true})
